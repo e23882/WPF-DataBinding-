@@ -155,8 +155,6 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
-/.vs/Jepun.FA/v15/Server/sqlite3
-/.vs/Jepun.FA/v16/Server/sqlite3
 *.lock
 *.ide
 *.ide-shm
@@ -171,3 +169,5 @@ $RECYCLE.BIN/
 *.pri
 packages
 /.vscode
+bin
+obj
