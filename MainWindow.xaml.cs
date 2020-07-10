@@ -9,8 +9,6 @@ namespace WPFApp
     {
         public MainWindow()
         {
-            ViewModel main = new ViewModel();
-            this.DataContext = main;
         }
     }
 }

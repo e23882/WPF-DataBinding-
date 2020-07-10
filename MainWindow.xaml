@@ -3,11 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFApp"
+        xmlns:advanceView="clr-namespace:WPFApp.Advanced.View"
+        xmlns:sampleView="clr-namespace:WPFApp.SampleCase.View"
+        xmlns:withoutViewModelView="clr-namespace:WPFApp.WithoutViewModel"
+        xmlns:local ="clr-namespace:WPFApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel Orientation="Vertical">
-        <TextBox Text="{Binding Content}"/>
-        <CheckBox IsChecked="{Binding IsChecked}"/>
-    </StackPanel>
+    <Window.Resources>
+        <local:ViewModel x:Key="SampleViewModel"/>
+    </Window.Resources>
+    <TabControl>
+        <TabItem Header="Sample">
+            <StackPanel Orientation="Vertical" DataContext="{Binding Source={StaticResource SampleViewModel}}">
+                <TextBox Text="{Binding Content}"/>
+                <CheckBox IsChecked="{Binding IsChecked}"/>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="AdvancedCase">
+            <advanceView:UcDemo/>
+        </TabItem>
+        <TabItem Header="SampleCase">
+            <sampleView:UcSample/>
+        </TabItem>
+        <TabItem Header="WithoutViewModelCase">
+            <withoutViewModelView:UcWithoutViewModel/>
+        </TabItem>
+    </TabControl>
+        
 </Window>

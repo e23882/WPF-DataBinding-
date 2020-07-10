@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WPFApp
 {
-    class ViewModel : INotifyPropertyChanged
+    public class ViewModel : INotifyPropertyChanged
     {
         #region Declarations
-        public event PropertyChangedEventHandler PropertyChanged;
         private bool _IsChecked = true;
         private string _Content = "Default Text";
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region Property
@@ -22,12 +16,12 @@ namespace WPFApp
         {
             get
             {
-                return _IsChecked;
+                return this._IsChecked;
             }
             set
             {
-                _IsChecked = value;
-                OnPropertyChanged();
+                this._IsChecked = value;
+                this.OnPropertyChanged();
             }
         }
 
@@ -35,12 +29,12 @@ namespace WPFApp
         {
             get
             {
-                return _Content;
+                return this._Content;
             }
             set
             {
-                _Content = value;
-                OnPropertyChanged();
+                this._Content = value;
+                this.OnPropertyChanged();
             }
         }
         #endregion
@@ -48,7 +42,7 @@ namespace WPFApp
         #region Memberfunction
         public void OnPropertyChanged([CallerMemberName]string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }
